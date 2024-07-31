@@ -1,0 +1,671 @@
+/* :root {
+  --pnrm-main: #D45500;
+  --pnrm-main-light: #ce9976;
+  --pnrm-main-lighter: #f8e5d9;
+  --pnrm-main-lightest: #fffbf9;
+  --pnrm-neutral-light: #DDD;
+  --pnrm-neutral-light: #ece9e6;
+  --pnrm-neutral: #aaa;
+  --pnrm-neutral-dark: #444;
+} */
+
+.pnrm-tour .btn-add {
+  background-color: #2271b1;
+  border-color: #2271b1;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pnrm-tour .btn-add:disabled {
+  background-color: #82878C;
+  border-color: #82878C;
+}
+
+.pnrm-tour .btn-upgrade {
+  background-color: #D45500;
+  border-color: #D45500;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pnrm-tour h2 {
+  margin-top: 2rem;
+}
+
+.pnrm-tour table {
+  width: 100%;
+  /* padding: 1rem; */
+}
+
+.pnrm-tour thead {
+  background-color: #82878C;
+  color: #fff;
+  font-weight: bold;
+  /* font-size: large; */
+}
+
+.pnrm-tour td.post-id {
+  display: none;
+}
+
+.pnrm-tour thead td {
+  padding: 1rem;
+}
+
+.pnrm-tour tbody {
+  background-color: #fff;
+  /* font-weight: bold; */
+  /* font-size: 1rem; */
+}
+
+.pnrm-tour tbody td {
+  padding: 1rem;
+}
+
+.pnrm-tour tbody td .tour-link {
+  text-decoration: none;
+  color: #2271b1;
+}
+
+.pnrm-tour tbody td .shortcode {
+  background-color: #F0F0F1;
+  padding: 0.2rem 0.5rem;
+}
+
+.pnrm-tour .btn-copy,
+.pnrm-tour .btn-edit,
+.pnrm-tour .btn-delete {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0 0.5rem;
+}
+
+.pnrm-tour .btn-copy .icon,
+.pnrm-tour .btn-edit .icon,
+.pnrm-tour .btn-delete .icon {
+  width: 23px;
+  height: 25px;
+  font-size: 25px;
+  color: #82878C;
+  cursor: pointer;
+}
+
+.pnrm-tour .btn-copy:hover .icon {
+  color: #398529;
+}
+
+.pnrm-tour .btn-edit:hover .icon {
+  color: #2271b1;
+}
+
+.pnrm-tour .btn-delete:hover .icon {
+  color: #D63638;
+}
+
+
+/* ---------------------   Modals   ----------------------- */
+
+/* modal add/edit/copy/delete tour */
+
+.pnrm-tour .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.pnrm-tour .modal.show {
+  display: block;
+}
+
+.pnrm-tour .modal .dialog-box {
+  background-color: #fff;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 10rem;
+  width: 400px;
+  max-width: 80%;
+  border-radius: 3px;
+
+  transform: translateX(85px);
+}
+
+.pnrm-tour .modal form {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.pnrm-tour .modal .title {
+  background-color: #F0F0F1;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: relative;
+}
+
+.pnrm-tour .modal .content {
+  margin: 2rem;
+}
+
+.pnrm-tour .modal .content label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.pnrm-tour .modal .content input[type="text"] {
+  width: 100%;
+}
+
+.pnrm-tour .modal .buttons {
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.pnrm-tour .modal .btn-ok {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pnrm-tour .modal .btn-cancel {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.pnrm-tour .modal-delete .btn-ok {
+  background-color: #D63638;
+  border-color: #D63638;
+}
+
+.pnrm-tour .modal .btn-ok:disabled {
+  background-color: #82878C;
+  border-color: #82878C;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .pnrm-tour .modal .dialog-box {
+
+    transform: translateX(0);
+  }
+
+}
+
+
+
+
+/* item-info */
+
+.pnrm-tour .item-info {
+  position: relative;
+  opacity: 0;
+  margin: 0 1rem;
+}
+
+.pnrm-tour .row:hover .item-info {
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.pnrm-tour .item-info .info-icon {
+  opacity: 0.3;
+  width: 20px;
+  height: 20px;
+}
+
+.pnrm-tour .item-info p.info-text {
+  position: absolute;
+  bottom: 35px;
+  left: -50px;
+  width: 120px;
+  font-size: 0.7rem;
+  background-color: #f0f6fc;
+  border-radius: 3px;
+  padding: 0.2rem 0.2rem 0.2rem 0.4rem;
+  visibility: hidden;
+  margin: 0;
+}
+
+.pnrm-tour .item-info .triangle {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  border-top: 10px solid #f0f6fc;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  visibility: hidden;
+
+}
+
+.pnrm-tour .item-info:hover .triangle,
+.pnrm-tour .item-info:hover p.info-text {
+  visibility: visible;
+}
+
+/* -------------------  toggle switch  -------------------- */
+
+.pnrm-tour .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+}
+
+.pnrm-tour .toggle-switch input {
+  /* opacity: 0; */
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  margin: 0 !important;
+}
+
+.pnrm-tour .toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pnrm-tour .toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pnrm-tour .toggle-switch input:checked + .slider {
+  background-color: #3582C4;
+}
+
+.pnrm-tour .toggle-switch input:focus + .slider {
+  box-shadow: 0 0 1px #3582C4;
+}
+
+.pnrm-tour .toggle-switch input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+.pnrm-tour .toggle-switch .slider.round {
+  border-radius: 34px;
+}
+
+.pnrm-tour .toggle-switch .slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+/* new code */
+
+/* -------------------  main page import/export buttons  -------------------- */
+
+.pnrm-tour .buttons-import-export {
+  display: flex;
+  justify-content: end;
+  padding: 0 1rem;
+}
+
+.pnrm-tour .buttons-import-export button {
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* -------------------  modal import/export  -------------------- */
+
+.pnrm-tour .modal-export,
+.pnrm-tour .modal-import {
+  z-index: 9999;
+}
+
+.pnrm-tour .modal-export .title .pro-feature-text,
+.pnrm-tour .modal-import .title .pro-feature-text {
+  font-weight: bold;
+  color: #2271b1;
+  margin: 0 0.2rem;
+  position: absolute;
+  top: 17px;
+  right: 17px;
+
+  background-color: #D45500;
+  color: #fff;
+  padding: 0.2rem;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.pnrm-tour .modal-export .dialog-box,
+.pnrm-tour .modal-import .dialog-box {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  width: 900px;
+  max-width: 90%;
+}
+
+.pnrm-tour .modal-export .box-info-message .box-info-button,
+.pnrm-tour .modal-import .box-info-message .box-info-button {
+  width: 100px;
+  margin-left: auto;
+  cursor: pointer;
+  text-align: end;
+}
+
+.pnrm-tour .modal-export .box-info-message .box-info-button span,
+.pnrm-tour .modal-import .box-info-message .box-info-button span {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 0;
+  margin: 0 0.2rem;
+}
+
+
+.pnrm-tour .modal-export .box-info-message .box-info-button .icon-down,
+.pnrm-tour .modal-import .box-info-message .box-info-button .icon-down {
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+}
+
+.pnrm-tour .modal-export .box-info-message.open .box-info-button .icon-down,
+.pnrm-tour .modal-import .box-info-message.open .box-info-button .icon-down {
+  transform: rotate(-180deg);
+}
+
+.pnrm-tour .modal-export .box-info-message ul,
+.pnrm-tour .modal-import .box-info-message ul {
+  background-color: #F0F0F1;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  padding: 1rem;
+  font-size: 0.7rem;
+  display: none;
+  margin: 0;
+}
+
+.pnrm-tour .modal-export .box-info-message.open ul,
+.pnrm-tour .modal-import .box-info-message.open ul {
+  display: block;
+}
+
+.pnrm-tour .modal-export .box-info-message ul li,
+.pnrm-tour .modal-import .box-info-message ul li {
+  list-style: disc inside;
+}
+
+.pnrm-tour .modal-export .row,
+.pnrm-tour .modal-import .row {
+  margin: 1rem 0;
+}
+
+.pnrm-tour .modal-import .box-file-input label {
+  display: initial;
+}
+
+.pnrm-tour .modal-import .box-file-input input {
+  width: initial;
+  margin: 0 1rem;
+}
+
+.pnrm-tour .modal-export .inner-flex,
+.pnrm-tour .modal-import .inner-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pnrm-tour .modal-export .div-resources,
+.pnrm-tour .modal-import .div-resources {
+  width: 100%;
+  background-color: #F0F0F1;
+  border: 1px solid #8c8f94;
+  color: #2c3338;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.pnrm-tour .modal-export .div-resources-title .each-row,
+.pnrm-tour .modal-export .div-select-all .each-row,
+.pnrm-tour .modal-export .div-resources .each-row,
+.pnrm-tour .modal-import .div-resources-title .each-row,
+.pnrm-tour .modal-import .div-select-all .each-row,
+.pnrm-tour .modal-import .div-resources .each-row {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+}
+
+.pnrm-tour .modal-export .div-resources .each-row[data-selected="yes"],
+.pnrm-tour .modal-import .div-resources .each-row[data-selected="yes"] {
+  background-color: #fff;
+}
+
+.pnrm-tour .modal-export .div-resources-title .each-row,
+.pnrm-tour .modal-import .div-resources-title .each-row {
+  background-color: #ddd;
+  text-align: center;
+  font-weight: bold;
+  border-top: 1px solid #8c8f94;
+  border-left: 1px solid #8c8f94;
+  border-right: 1px solid #8c8f94;
+}
+
+.pnrm-tour .modal-export .div-select-all .each-row,
+.pnrm-tour .modal-import .div-select-all .each-row {
+  background-color: #ddd;
+  font-weight: bold;
+  border-bottom: 1px solid #8c8f94;
+  border-left: 1px solid #8c8f94;
+  border-right: 1px solid #8c8f94;
+}
+
+/* select column */
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(1),
+.pnrm-tour .modal-import .div-select-all .each-row span:nth-child(1),
+.pnrm-tour .modal-import .div-resources .each-row span:nth-child(1) {
+  flex-basis: 30px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 0.3rem;
+  text-align: center;
+}
+
+/* domain column */
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(2),
+.pnrm-tour .modal-import .div-select-all .each-row span:nth-child(2),
+.pnrm-tour .modal-import .div-resources .each-row span:nth-child(2) {
+  flex-basis: 25%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  border-left: 1px solid #ccc;
+  padding: 0.3rem;
+
+}
+
+/* path column */
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(3),
+.pnrm-tour .modal-import .div-select-all .each-row span:nth-child(3),
+.pnrm-tour .modal-import .div-resources .each-row span:nth-child(3) {
+  flex-basis: 35%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  border-left: 1px solid #ccc;
+  padding: 0.3rem;
+
+}
+
+/* filename column */
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(4),
+.pnrm-tour .modal-import .div-select-all .each-row span:nth-child(4),
+.pnrm-tour .modal-import .div-resources .each-row span:nth-child(4) {
+  flex-basis: 30%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  border-left: 1px solid #ccc;
+  padding: 0.3rem;
+
+}
+
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(2),
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(3),
+.pnrm-tour .modal-import .div-resources-title .each-row span:nth-child(4) {
+  border-left: none;
+}
+
+.pnrm-tour .modal-import .div-select-all .each-row span:nth-child(3),
+.pnrm-tour .modal-import .div-select-all .each-row span:nth-child(4) {
+  border-left: none;
+}
+
+
+.pnrm-tour .modal-import .flex-change {
+  display: flex;
+  align-items: center;
+}
+
+.pnrm-tour .modal-import .flex-change > *:nth-child(1) {
+  flex-basis: 300px;
+}
+
+.pnrm-tour .modal-import .flex-change > *:nth-child(2) {
+  flex-grow: 1;
+  margin: 0 0.5rem;
+}
+
+.pnrm-tour .modal-import .flex-change button {
+  padding: 0.3rem 0.7rem;
+}
+
+.pnrm-tour .modal-import .flex-overwrite-tour {
+  display: none;
+}
+
+.pnrm-tour .modal-import .flex-overwrite-tour.show {
+  display: flex;
+  align-items: center;
+}
+
+.pnrm-tour .modal-import .flex-overwrite-tour > *:nth-child(1) {
+  flex-grow: 1;
+}
+
+.pnrm-tour .modal-import .flex-overwrite-tour > *:nth-child(2) {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.pnrm-tour .modal-import .flex-overwrite-tour > *:nth-child(3) {
+  flex-basis: 150px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 0 1rem;
+}
+
+
+
+/* -------------------  modal export specific  -------------------- */
+
+.pnrm-tour .modal-export .row.select-tour {
+  display: flex;
+  align-items: center;
+}
+
+.pnrm-tour .modal-export .row.select-tour #select-export-tour {
+  font-weight: bold;
+  border-width: 2px;
+}
+
+.pnrm-tour .modal-export .row.select-tour .loading-msg,
+.pnrm-tour .modal-export .row.select-tour .error-msg {
+  color: #D63638;
+  margin: 0 1rem;
+  display: none;
+}
+
+.pnrm-tour .modal-export .row.select-tour .loading-msg img {
+  width: 28px;
+}
+
+.pnrm-tour .modal-export .row.select-tour .loading-msg.show,
+.pnrm-tour .modal-export .row.select-tour .error-msg.show {
+  display: inline;
+}
+
+/* select column */
+.pnrm-tour .modal-export .div-resources-title .each-row span:nth-child(1),
+.pnrm-tour .modal-export .div-select-all .each-row span:nth-child(1),
+.pnrm-tour .modal-export .div-resources .each-row span:nth-child(1) {
+  flex-basis: 30px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 0.3rem;
+  text-align: center;
+}
+
+/* resource url column */
+.pnrm-tour .modal-export .div-resources-title .each-row span:nth-child(2),
+.pnrm-tour .modal-export .div-select-all .each-row span:nth-child(2),
+.pnrm-tour .modal-export .div-resources .each-row span:nth-child(2) {
+  flex-shrink: 0;
+  flex-grow: 1;
+  border-left: 1px solid #ccc;
+  padding: 0.3rem;
+}
+
+.pnrm-tour .modal-export .command span,
+.pnrm-tour .modal-export .command label {
+  margin: 0 1rem;
+  display: initial;
+}
+
+.pnrm-tour .modal-export .command input[type="text"] {
+  width: initial;
+  margin: 0 1rem;
+}
+
+.pnrm-tour .modal-export .command button {
+  padding: 0.3rem 0.7rem;
+}
+
+
+
+

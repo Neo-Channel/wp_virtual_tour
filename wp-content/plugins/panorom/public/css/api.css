@@ -1,0 +1,113 @@
+.pnrm-api .btn-upgrade {
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+
+  background-color: #D45500;
+  border-color: #D45500;
+  color: #fff;
+}
+
+.pnrm-api .table-api-key {
+  width: 500px;
+  max-width: 90%;
+  border-collapse: collapse;
+}
+
+.pnrm-api .table-api-key caption {
+  margin: 1rem 0;
+}
+
+.pnrm-api .table-api-key label {
+  font-weight: bold;
+}
+
+.pnrm-api .table-api-key td {
+  padding: 0.5rem;
+}
+
+.pnrm-api .table-api-key .td-input {
+  width: 80%;
+}
+
+.pnrm-api .table-api-key .td-input input {
+  width: 100%
+}
+
+.pnrm-api .table-api-key .td-submit {
+  text-align: end;
+}
+
+.pnrm-api .table-api-key .td-submit input[type="submit"] {
+  padding: 0.2rem 1.5rem !important;
+  font-weight: bold;
+  margin-bottom: 5rem;
+}
+
+.pnrm-api .table-api-key .td-show-release {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pnrm-api .table-api-key .tr-release-row {
+  display: none;
+}
+
+.pnrm-api .table-api-key .tr-release-row.show {
+  display: table-row;
+}
+
+
+/* .top-flex {
+  display: flex;
+}
+
+.top-flex > * {
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.pnrm-api .table-review-request {
+  width: 500px;
+  max-width: 90%;
+  border-collapse: collapse;
+}
+
+.pnrm-api .table-review-request caption {
+  margin: 1rem 0;
+}
+
+.pnrm-api .table-review-request label {
+  font-weight: bold;
+}
+
+.pnrm-api .table-review-request td {
+  padding: 0.5rem;
+}
+
+.pnrm-api .table-review-request .td-input {
+  width: 80%;
+}
+
+.pnrm-api .table-review-request .td-input input {
+  width: 100%
+}
+
+.pnrm-api .table-review-request .td-submit {
+  text-align: end;
+}
+
+.pnrm-api .table-review-request .td-submit input[type="submit"] {
+  padding: 0.2rem 1.5rem !important;
+  font-weight: bold;
+  margin-bottom: 5rem;
+} */

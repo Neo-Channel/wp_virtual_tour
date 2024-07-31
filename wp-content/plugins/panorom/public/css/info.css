@@ -1,0 +1,59 @@
+
+.pnrm-info .content {
+  padding: 1rem;
+  max-width: 700px;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.pnrm-info .content > * {
+  margin: 2rem 0;
+}
+
+.pnrm-info .content a:focus {
+  box-shadow: none;
+}
+
+.pnrm-info .content .logo {
+  /* background-color: #c5d9ed; */
+  /* background-color: #996800; */
+  /* background-color: #1d2327; */
+  background-color: #fff;
+  padding: 2rem 3rem;
+  padding-bottom: 1.5rem;
+  border-radius: 50px;
+}
+
+.pnrm-info .content .title {
+  font-size: 1.5rem;
+}
+
+.pnrm-info .content .btn-start {
+  background-color: #2271b1;
+  border-color: #2271b1;
+  color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.pnrm-info .extra {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 4rem auto;
+  display: flex;
+}
+
+.pnrm-info .extra > li {
+  flex: 0% 1 1;
+}
+
+.pnrm-info .extra > li > div {
+  width: 200px;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
